@@ -1,0 +1,91 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "extends": [
+    "eslint-config-airbnb-base",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jest/recommended",
+    "plugin:sonarjs/recommended"
+  ],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "stewie": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": [
+        ["@magalu/stereo-ui", ["./packages/stereo-ui/src"]],
+        ["@magalu/stereo-ui-styles", ["./packages/stereo-ui-styles/src"]],
+        ["@magalu/stereo-ui-icons", ["./packages/stereo-ui-icons/src"]],
+        ["@stereo/mock-data", ["./mock-data"]]
+      ],
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"]
+      }
+    }
+  },
+  "plugins": ["react", "jsx-a11y", "sonarjs", "prettier"],
+  "rules": {
+    "camelcase": "off",
+    "import/prefer-default-export": "off",
+    "no-param-reassign": "off",
+    "strict": 0,
+    "react/no-children-prop": "off",
+    "switch-colon-spacing": [
+      2,
+      {
+        "after": false,
+        "before": false
+      }
+    ],
+    "import/no-unresolved": [
+      2,
+      {
+        "commonjs": true,
+        "amd": true
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        "devDependencies": true,
+        "optionalDependencies": true,
+        "peerDependencies": true
+      }
+    ],
+    "react/jsx-indent": ["error", 2],
+    "react/prop-types": ["error"],
+    "prettier/prettier": ["error"],
+    "import/namespace": ["error", { "allowComputed": true }],
+    "no-console": [
+      "error",
+      {
+        "allow": ["error"]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/*styles.js", "**/*test.js", "**/*stories.js"],
+      "rules": {
+        "sonarjs/no-duplicate-string": "off"
+      }
+    }
+  ]
+}
